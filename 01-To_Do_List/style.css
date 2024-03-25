@@ -1,0 +1,143 @@
+:root{
+    --white: #fff;
+    --black: #000;
+    --blue: #8ee;
+    --orange: rgb(247, 126, 40);
+    --red: rgb(247, 40, 40);
+    --gray: rgb(187, 186, 186);
+    --font: "Inconsolata", monospace;
+    --font: "Inconsolata", monospace;
+}
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}  
+
+body{
+    background-color: var(--black);
+}
+
+h1 , p{
+    font-family: var(--font);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h1{
+    color: var(--blue); 
+    font-size: 1.5rem;
+}
+
+p{
+    color: var(--gray);
+    font-size: .9rem;
+    margin: 1rem;
+}
+
+span{
+    color: var(--blue);
+}
+
+.contenedor{
+    max-width: min(45%, 120rem);
+    margin: 0 auto;
+}
+
+/* Input de datos */
+.inputField{
+    display: flex;
+    flex-direction: column; /* Cambia la dirección de la distribución */
+    margin-bottom: 2rem;
+}
+
+.inputField__input{
+    border: none;
+    border-radius: 0rem;
+    border-bottom: 1px solid var(--white);
+    font-size: 1rem;
+    background-color: var(--black);
+    color: var(--white);
+    font-family: var(--font);
+    width: 15rem;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+
+.inputField__input:focus{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--blue);
+}
+
+.inputField__button{
+    cursor: pointer;
+    background-color: var(--blue);
+    color: var(--black);
+    padding: 0.5rem;
+    text-transform: lowercase;
+    font-family: var(--font);
+    border: none;
+    width: max(15%, 15rem);
+    margin: 0 auto;
+}
+
+
+/* Input de listas */
+.todoList{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid var(--white);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Checkbox */
+[type="checkbox"]{display: none;}
+
+.todoList__label{
+    font-family: var(--font);
+    color: var(--white);
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.todoList__label::before{
+    content: '';
+    border: solid 1px var(--white);
+    border-radius: 0;
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    left: 0px;
+    top: 1px;
+}
+
+.todoList__checkbox:checked + .todoList__label{    
+    font-style: italic;
+    text-decoration: line-through;
+    color: var(--gray);
+}
+
+.todoList__checkbox:checked + .todoList__label::before{
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg>'); /* Añade el ícono de palomita */
+    position: absolute;
+}
+
+/* Boton delete */
+.todoList__buttonDelete{
+    cursor: pointer;
+    background-color: var(--black);
+    color: var(--white);
+    text-transform: lowercase;
+    font-family: var(--font);
+    border: 1px solid var(--red);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
