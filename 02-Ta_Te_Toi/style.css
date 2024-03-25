@@ -1,0 +1,107 @@
+:root{
+    --white: #fff;
+    --black: #000;
+    --blue: #8ee;
+    --orange: rgb(247, 126, 40);
+    --red: rgb(247, 40, 40);
+    --gray: rgb(187, 186, 186);
+    --font: "Inconsolata", monospace;
+    --gameFont: "Silkscreen", sans-serif;;
+}
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}  
+
+body{
+    background-color: var(--black);
+}
+
+body, html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+h1 , p{
+    font-family: var(--font);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h1{
+    color: var(--white); 
+    font-size: 1.5rem;
+}
+
+.turnO{
+    color: var(--blue);
+}
+
+.turnX{
+    color: var(--red);
+}
+
+.content{
+    position: absolute;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100%;
+    width: 100%;
+    grid-template-rows: repeat(2,1fr);
+    flex-direction: column;
+}
+
+.grid{
+    display: flex;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.grid__el{
+    height: 8rem;
+    width: 8rem;
+    border: 1px solid var(--white);
+    margin: 0.5rem
+}
+
+.grid__el:hover {
+    transform: scale(1.05);
+}
+
+.teamX {
+    border: 1px solid var(--red);
+    color: var(--red);
+    font-family: var(--gameFont);
+    font-size: 1rem;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.teamO{
+    border: 1px solid var(--blue);
+    color: var(--blue);
+    font-family: var(--gameFont);
+    font-size: 1rem;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.button{
+    cursor: pointer;
+    background-color: var(--orange);
+    color: var(--black);
+    padding: 0.5rem;
+    text-transform: lowercase;
+    font-family: var(--font);
+    border: none;
+    width: max(15%, 15rem);
+    margin: 0 auto;
+    margin-top: 1rem;
+}
