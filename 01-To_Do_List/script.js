@@ -6,45 +6,6 @@ let list = document.querySelector('#list-0');
 let text = document.querySelector('#p-add');
 let id = 1;
 
-attach.addEventListener('click', function () {
-    if(input.value == ''){
-        alert("There are no tasks added");
-    }else{
-        createNewTask(id);
-        Array.from(buttonDelete).forEach((element, index) => {
-            let field = element.parentNode;
-            console.log('padre: ' + field + ' de: ' + element);
-            
-            element.addEventListener("click", (e) => {
-                field.remove();  
-                getCant();         
-            });
-        });
-        getCant();
-
-        input.value = '';
-        id++;
-    }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    Array.from(buttonDelete).forEach((element, index) => {
-        let field = element.parentNode;
-        console.log('padre: ' + field + ' de: ' + element);
-        
-        element.addEventListener("click", (e) => {
-            field.remove();  
-            getCant();         
-        });
-    });
-})
-
-let getCant= function(){
-    Array.from(buttonDelete).forEach((element,index) => {
-        text.textContent = index;
-    })
-}
-
 let createNewTask = function (id) {
     const TodoList = document.createElement('div');
     TodoList.classList.add('todoList');
@@ -75,4 +36,55 @@ let createNewTask = function (id) {
 
     TodoList.appendChild(buttonDelete);
     window.getComputedStyle(label).getPropertyValue('display');
+}
+
+let addNewTask = function(){
+    if(input.value == ''){
+        alert("There are no tasks added");
+    }else{
+        createNewTask(id);
+        Array.from(buttonDelete).forEach((element, index) => {
+            let field = element.parentNode;
+            console.log('padre: ' + field + ' de: ' + element);
+            
+            element.addEventListener("click", (e) => {
+                field.remove();  
+                getCant();         
+            });
+        });
+        getCant();
+
+        input.value = '';
+        id++;
+    }
+}
+
+attach.addEventListener('click', function () {
+    addNewTask();
+});
+
+document.getElementById('input-A').addEventListener("keyup", function(event) {
+    // Verificar si la tecla presionada es Enter ("Enter" en lugar de keyCode 13)
+    if (event.key === "Enter") {
+        addNewTask();
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    Array.from(buttonDelete).forEach((element, index) => {
+        let field = element.parentNode;
+        console.log('padre: ' + field + ' de: ' + element);
+        
+        element.addEventListener("click", (e) => {
+            field.remove();  
+            getCant();         
+        });
+    });
+    input.focus();
+})
+
+let getCant= function(){
+    Array.from(buttonDelete).forEach((element,index) => {
+        text.textContent = index;
+    })
 }
